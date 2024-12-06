@@ -50,7 +50,7 @@ app.get('/service_ps', async (req, res) => {
         res.status(400).send('Error: You are not allowed to query this service')
         return
     }
-    const output = await runCommand(`docker service ps ${name}`)
+    const output = await runCommand(`docker service ps ${name} --no-trunc`)
     res.setHeader('Content-Type', 'text/plain')
     res.setHeader('Content-Disposition', 'inline')
     res.send(output)
