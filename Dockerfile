@@ -13,7 +13,7 @@ COPY . .
 
 RUN apt-get update && apt-get install -y docker.io && rm -rf /var/lib/apt/lists/*
 
-EXPOSE 3000/tcp
+EXPOSE 7777/tcp
 
 CMD [ "node", "index.js" ]
 

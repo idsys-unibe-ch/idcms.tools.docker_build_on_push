@@ -4,7 +4,7 @@ import { promisify } from 'util'
 import * as dotenv from "dotenv"
 
 const app = express()
-const port = 3000
+const port = 7777
 dotenv.config()
 const allowedServices = (process.env.ALLOWED_SERVICES?process.env.ALLOWED_SERVICES:"").trim().split(",") || []
 

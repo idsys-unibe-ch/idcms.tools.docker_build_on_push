@@ -11,4 +11,9 @@ Knows a few endpoints:
 
 | Name             | Explanation                                           | Type                   | Example                                              | Default Value       |
 |------------------|-------------------------------------------------------|------------------------|------------------------------------------------------|---------------------|
-| ALLOWED_SERVICES | Which services are queryable with `docker service ps` | comma-seperated String | `foo,bar` to enable the two services `foo` and `bar` | No services allowed | 
+| ALLOWED_SERVICES | Which services are queryable with `docker service ps` | comma-seperated String | `foo,bar` to enable the two services `foo` and `bar` | No services allowed |
+
+
+### EXPOSED SERVICE
+
+The Express Server gets exposed on port 7777
