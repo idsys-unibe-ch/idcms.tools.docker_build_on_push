@@ -6,7 +6,7 @@ import * as dotenv from "dotenv"
 const app = express()
 const port = 3000
 dotenv.config()
-const allowedServices = process.env.ALLOWED_SERVICES || []
+const allowedServices = (process.env.ALLOWED_SERVICES?process.env.ALLOWED_SERVICES:"").trim().split(",") || []
 
 // Promisify exec for cleaner async/await usage
 const execAsync = promisify(exec)
