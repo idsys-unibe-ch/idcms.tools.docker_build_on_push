@@ -2,6 +2,7 @@ import express from 'express'
 import { exec } from 'child_process'
 import { promisify } from 'util'
 import * as dotenv from "dotenv"
+import { readFile } from 'fs/promises';
 
 const app = express()
 const port = 7777
@@ -26,6 +27,17 @@ async function runCommand(command) {
 }
 
 // Endpoints
+app.get('/', async (req, res) => {
+    try {
+        const content = await readFile('./README.md', 'utf8')
+        res.setHeader('Content-Type', 'text/plain')
+        res.setHeader('Content-Disposition', 'inline')
+        res.send(content)
+    } catch (err) {
+        res.status(500).send(`Sorry, explanation not available`);
+    }
+});
+
 app.get('/ps', async (req, res) => {
     const output = await runCommand('docker ps')
     res.setHeader('Content-Type', 'text/plain')
